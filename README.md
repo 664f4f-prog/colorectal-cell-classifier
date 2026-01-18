@@ -20,7 +20,8 @@ Cell-type classification in histology images is a critical task in computational
 - **8-Class Classification**: Identifies multiple colorectal histology cell types:
   - Adipose, Complex, Debris, Empty, Lympho, Mucosa, Stroma, Tumor
 - **Comprehensive Evaluation**: Includes accuracy tracking, confusion matrices, and visual predictions
-- **Dual Implementation**: Available as both Python script and Jupyter notebook
+- **Multiple Interfaces**: Available as Python script, Jupyter notebook, and Streamlit web app
+- **Interactive Web Interface**: User-friendly Streamlit app for easy testing and demonstration
 - **Automated Data Management**: Downloads and caches data automatically on first run
 - **Production-Ready**: Clean, well-documented code suitable for local execution and deployment
 
@@ -51,11 +52,14 @@ This project uses **transfer learning** with EfficientNetB0 as the base model. T
 
 ```
 colorectal-cell-classifier/
+├── app.py  # Streamlit web application
+├── train_model.py  # Model training script
 ├── notebooks/
 │   └── colorectal_cell_classification.ipynb  # Jupyter notebook with the full pipeline
 ├── src/
 │   └── classifying_the_different_cells_in_colorectal_cancer.py  # Python script version
 ├── requirements.txt  # Python dependencies
+├── .gitignore  # Git ignore rules
 └── README.md  # This file
 ```
 
@@ -117,6 +121,45 @@ source venv/bin/activate  # On macOS/Linux
 jupyter notebook notebooks/colorectal_cell_classification.ipynb
 ```
 
+**Option 3: Streamlit Web App (Interactive UI)**
+```bash
+# Make sure virtual environment is activated
+source venv/bin/activate  # On macOS/Linux
+
+# Run the Streamlit app
+streamlit run app.py
+```
+
+The Streamlit app will open in your default web browser at `http://localhost:8501`. This provides an interactive interface for:
+- Uploading images for classification
+- Testing with sample images from the dataset
+- Viewing model predictions with confidence scores
+- Exploring test sample gallery
+
+**Note:** The Streamlit app will use a pre-trained model if available. To train the model first, see the "Training the Model" section below.
+
+### Training the Model
+
+Before using the Streamlit app with accurate predictions, you should train the model:
+
+```bash
+# Make sure virtual environment is activated
+source venv/bin/activate  # On macOS/Linux
+
+# Run the training script
+python train_model.py
+```
+
+This will:
+- Download the dataset (if not already present)
+- Prepare and preprocess the data
+- Build the EfficientNetB0 model
+- Train for 5 epochs (~5-10 minutes)
+- Save the trained model weights to `models/trained_model.weights.h5`
+- Generate a training history plot at `models/training_history.png`
+
+The trained model will automatically be loaded by the Streamlit app on subsequent runs.
+
 ### Data Download
 
 On first run, the script will automatically download the required data files (~500MB):
@@ -131,6 +174,7 @@ The data will be saved in a `data/` directory and reused on subsequent runs, so 
 
 - **TensorFlow/Keras** - Deep learning framework
 - **EfficientNetB0** - Pre-trained convolutional neural network for transfer learning
+- **Streamlit** - Web application framework for interactive UI
 - **NumPy/Pandas** - Data manipulation and preprocessing
 - **Matplotlib/Seaborn** - Data visualization and result plotting
 - **Scikit-learn** - Machine learning utilities
@@ -162,9 +206,10 @@ The project includes comprehensive evaluation:
 - ✅ **Transfer Learning**: EfficientNetB0 adaptation for medical imaging
 - ✅ **Multi-class Classification**: 8 distinct cell type categories
 - ✅ **End-to-End Pipeline**: From data loading to visualization
+- ✅ **Interactive Web App**: Streamlit interface for easy testing and demonstration
 - ✅ **Well-Documented**: Clear code structure and comprehensive README
 - ✅ **Reproducible**: Easy setup and execution instructions
-- ✅ **Production-Ready**: Supports both script and notebook workflows
+- ✅ **Production-Ready**: Supports script, notebook, and web app workflows
 
 ## License
 

@@ -8,3 +8,4 @@ Pillow
 requests
 tensorflow
 tensorflow-datasets
+streamlit
