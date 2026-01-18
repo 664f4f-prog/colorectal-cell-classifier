@@ -1,9 +1,9 @@
 # Colorectal Cell Classifier
+Colorectal cancer is one of the leading causes of cancer-related deaths worldwide, and histology images are a key tool for understanding tumor structure at the cellular level. In this project, I developed a machine learning pipeline to classify different cell types in colorectal cancer tissue using histopathological image data.
 
-A deep learning project that classifies 8 different cell types in colorectal cancer histology images using transfer learning with EfficientNetB0. This project demonstrates practical applications of computer vision in computational pathology and medical image analysis.
+The goal of this project was to explore how computer vision and deep learning techniques can be applied to real biomedical datasets, and to understand the practical challenges involved in medical image classification rather than to build a clinically deployable system.
 
 ## Overview
-
 This project implements a convolutional neural network for automated classification of histology cell types, which is crucial for cancer research and diagnosis. By leveraging transfer learning with EfficientNetB0, the model achieves high accuracy while requiring minimal training time and computational resources.
 
 ## Why This Matters
@@ -13,6 +13,8 @@ Cell-type classification in histology images is a critical task in computational
 - **Consistent and reproducible** cell type identification
 - **Support for cancer research** and diagnostic workflows
 - **Time-efficient analysis** of large histology datasets
+
+I chose this problem because it combines machine learning, image processing, and biomedical science, allowing me to apply core CS concepts to a real-world, high-impact domain.
 
 ## Features
 
@@ -210,6 +212,17 @@ The project includes comprehensive evaluation:
 - ✅ **Well-Documented**: Clear code structure and comprehensive README
 - ✅ **Reproducible**: Easy setup and execution instructions
 - ✅ **Production-Ready**: Supports script, notebook, and web app workflows
+
+## What I Would Improve With More Time
+
+If I were to continue this project, I would:
+- Apply data augmentation to increase dataset diversity  
+- Use transfer learning with pre-trained convolutional models  
+- Perform more extensive hyperparameter tuning  
+- Explore model interpretability techniques (e.g., saliency or activation maps)  
+- Build a lightweight inference demo to allow users to upload and classify images interactively  
+
+These steps would help transition the project from an exploratory analysis to a more robust research-oriented system.
 
 ## License
 
