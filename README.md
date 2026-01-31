@@ -174,15 +174,9 @@ The data will be saved in a `data/` directory and reused on subsequent runs, so 
 
 ### Deploying to Streamlit Cloud
 
-To deploy the app on [Streamlit Community Cloud](https://share.streamlit.io/), ensure your repo has `app.py` and `requirements.txt` at the root, then connect the repo and deploy.
+To deploy the app on [Streamlit Community Cloud](https://share.streamlit.io/), ensure your repo has `app.py`, `requirements.txt`, and (optionally) `runtime.txt` at the root, then connect the repo and deploy.
 
-**Required: set one environment variable** so Streamlit works with TensorFlow’s protobuf version. In your app’s **Advanced settings** → **Secrets**, add (TOML):
-
-```toml
-PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION = "python"
-```
-
-Save and redeploy. Without this, the app may fail at startup with a protobuf “Descriptors cannot be created directly” error.
+**Python version:** In **Advanced settings** when deploying, select **Python 3.11** (or 3.12). The project pins TensorFlow 2.15 and protobuf <4 so Streamlit works on Cloud; TensorFlow 2.15 does not support Python 3.13. If the Cloud ignores `runtime.txt`, choosing 3.11 in the UI is required.
 
 **Note:** The app needs the trained model at `models/trained_model.weights.h5`. Either commit that file (if your repo is allowed to include it) or run training in Cloud via a custom setup; for a quick demo, committing the weights is simplest.
 
