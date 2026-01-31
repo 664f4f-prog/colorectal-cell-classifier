@@ -172,6 +172,20 @@ The data will be saved in a `data/` directory and reused on subsequent runs, so 
 
 **Note:** The `data/` directory is excluded from git via `.gitignore` since the files are large. Each developer will download the data on their first run.
 
+### Deploying to Streamlit Cloud
+
+To deploy the app on [Streamlit Community Cloud](https://share.streamlit.io/), ensure your repo has `app.py` and `requirements.txt` at the root, then connect the repo and deploy.
+
+**Required: set one environment variable** so Streamlit works with TensorFlow’s protobuf version. In your app’s **Advanced settings** → **Secrets**, add (TOML):
+
+```toml
+PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION = "python"
+```
+
+Save and redeploy. Without this, the app may fail at startup with a protobuf “Descriptors cannot be created directly” error.
+
+**Note:** The app needs the trained model at `models/trained_model.weights.h5`. Either commit that file (if your repo is allowed to include it) or run training in Cloud via a custom setup; for a quick demo, committing the weights is simplest.
+
 ## Technologies Used
 
 - **TensorFlow/Keras** - Deep learning framework

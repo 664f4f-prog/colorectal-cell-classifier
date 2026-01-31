@@ -2,6 +2,9 @@
 Streamlit App for Colorectal Cell Classification
 A user-friendly interface for testing the deep learning model
 """
+# Use pure-Python protobuf so Streamlit works with TensorFlow's protobuf 5.x on Cloud
+import os
+os.environ.setdefault("PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION", "python")
 
 import streamlit as st
 import numpy as np
