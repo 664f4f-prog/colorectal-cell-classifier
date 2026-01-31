@@ -9,3 +9,5 @@ requests
 tensorflow
 tensorflow-datasets
 streamlit
+# Pin protobuf for Streamlit Cloud: protobuf 4+ breaks Streamlit's generated _pb2 code
+protobuf>=3.20.0,<4
